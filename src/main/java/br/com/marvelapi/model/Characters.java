@@ -32,7 +32,7 @@ public class Characters implements Serializable {
 	private Date modified;
 
 	@OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "idThumbnail")
 	private Thumbnail thumbnail;
 
 	public Characters() {
