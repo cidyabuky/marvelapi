@@ -16,18 +16,18 @@ public class Thumbnail {
 	@JsonIgnore
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Integer idThumbnail;
 
 	private String path;
 
 	private String extension;
 
-	public Integer getId() {
-		return id;
+	public Integer getIdThumbnail() {
+		return idThumbnail;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdThumbnail(Integer idThumbnail) {
+		this.id = idThumbnail;
 	}
 
 	public String getPath() {
