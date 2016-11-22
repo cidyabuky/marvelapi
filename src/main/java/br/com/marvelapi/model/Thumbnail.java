@@ -21,6 +21,9 @@ public class Thumbnail {
 	private String path;
 
 	private String extension;
+	
+	@OneToOne(mappedBy = "thumbnail")
+	private Characters characters;
 
 	public Integer getIdThumbnail() {
 		return idThumbnail;
