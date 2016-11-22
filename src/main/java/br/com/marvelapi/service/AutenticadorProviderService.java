@@ -18,7 +18,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
-import br.com.marvelapi.model.Body;
+import br.com.marvelapi.model.CharacterDataWrapper;
 import br.com.marvelapi.model.Credentials;
 import br.com.marvelapi.repository.CharactersRepository;
 
@@ -40,7 +40,7 @@ public class AutenticadorProviderService implements AuthenticationProvider {
 		Credentials credenciais = new Credentials(privateKey, publicKey);
 
 		try {
-			Body body = marvelService.getCaracterByCredentials(credenciais);
+			CharacterDataWrapper body = marvelService.getCaracterByCredentials(credenciais);
 			log.info(body.toString());
 			personagemRepository.save(body.getData().getResults());
 			List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>();

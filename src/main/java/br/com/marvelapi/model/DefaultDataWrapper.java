@@ -1,15 +1,18 @@
 package br.com.marvelapi.model;
 
-public class Body {
+import java.io.Serializable;
+
+public class DefaultDataWrapper implements Serializable {
+	private static final long serialVersionUID = 5609127031153009150L;
+
 	private Integer code;
 	private String status;
-	private Data data;
 	private String etag;
 	private String copyright;
 	private String attributionText;
 	private String attributionHTML;
 
-	public Body() {
+	public DefaultDataWrapper() {
 	}
 
 	public Integer getCode() {
@@ -26,14 +29,6 @@ public class Body {
 
 	public void setStatus(String status) {
 		this.status = status;
-	}
-
-	public Data getData() {
-		return data;
-	}
-
-	public void setData(Data data) {
-		this.data = data;
 	}
 
 	public String getEtag() {
@@ -66,12 +61,6 @@ public class Body {
 
 	public void setAttributionHTML(String attributionHTML) {
 		this.attributionHTML = attributionHTML;
-	}
-
-	@Override
-	public String toString() {
-		return "Header [code=" + code + ", status=" + status + ", data=" + data + ", etag=" + etag + ", copyright=" + copyright + ", attributionText=" + attributionText + ", attributionHTML="
-				+ attributionHTML + "]";
 	}
 
 }

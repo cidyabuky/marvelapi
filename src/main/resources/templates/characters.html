@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Login</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<body>
+    <div class="container">
+        <div class="row">
+            <h2 th:text="${personagem.name}"></h2>
+            <section id="imagem" class="col-sm-2">
+                <div>
+                    <img th:src="${personagem.thumbnail.urlImageLarge}" alt="" />
+                </div>
+            </section>
+
+            <section id="contato" class="col-sm-6">
+                <form th:action="@{/listapersonagens}" method="post" class="form-signin" role="form">
+                    <div class="form-group">
+                        <textarea id="descricao" rows="5" class="form-control" readonly="true" th:text="${personagem.description}"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Voltar</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+        <div class="row">
+            <div style="text-align: center;">
+                <h2>Fascículos</h2>
+            </div>
+            <div th:each="revista : ${revistas}" class="row">
+                <hr/>
+                <section id="imagem" class="col-sm-2">
+                    <div>
+                        <img th:src="${revista.thumbnail.urlImageMedium}" alt="" />
+                    </div>
+                </section>
+    
+                <section id="contato" class="col-sm-6">
+                    <div class="form-group">
+                        <table style="width:100%">
+                            <tr>
+                                <td><b>Título:</b></td>
+                                <td th:text="${revista.title}"></td>
+                                <td><b>Número da capa:</b></td>
+                                <td th:text="${revista.id}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="descricao" rows="5" class="form-control" readonly="true" th:text="${revista.description}"></textarea>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</body>
+</html>

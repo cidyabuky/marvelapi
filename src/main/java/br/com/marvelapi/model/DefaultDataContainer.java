@@ -1,17 +1,17 @@
 package br.com.marvelapi.model;
 
-import java.util.List;
+import java.io.Serializable;
 
-public class Data {
+public class DefaultDataContainer implements Serializable {
+
+	private static final long serialVersionUID = -7015778104295647640L;
 
 	private Integer offset;
 	private Integer limit;
 	private Integer total;
 	private Integer count;
-	private List<Characters> results;
 
-	public Data() {
-		// TODO Auto-generated constructor stub
+	public DefaultDataContainer() {
 	}
 
 	public Integer getOffset() {
@@ -46,17 +46,9 @@ public class Data {
 		this.count = count;
 	}
 
-	public List<Characters> getResults() {
-		return results;
-	}
-
-	public void setResults(List<Characters> results) {
-		this.results = results;
-	}
-
 	@Override
 	public String toString() {
-		return "Informacoes [offset=" + offset + ", limit=" + limit + ", total=" + total + ", count=" + count + ", results=" + results + "]";
+		return "DefaultDataContainer [offset=" + offset + ", limit=" + limit + ", total=" + total + ", count=" + count + "]";
 	}
 
 }

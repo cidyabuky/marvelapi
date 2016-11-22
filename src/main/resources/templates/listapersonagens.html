@@ -17,7 +17,7 @@
                 </tr>
             </thead>
             <tr th:each="row : ${page}">
-                <td style="width: 30%;"><span th:text="${row.name}"></span></td>
+                <td style="width: 30%;"><a th:href="@{characters(id=${row.id})}"><span th:text="${row.name}"></span></a></td>
                 <td style="width: 50%;"><span th:text="${row.description}"></span></td>
                 <td style="width: 20%;"><span
                     th:text="${#dates.format(row.modified, 'dd/MM/yyyy')}"></span></td>
