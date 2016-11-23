@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar target/marvelapi.jar
+web: java -Dserver.port=$PORT -jar target/marvelapi-0.0.1-SNAPSHOT.jar
