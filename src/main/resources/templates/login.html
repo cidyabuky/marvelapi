@@ -3,7 +3,7 @@
     xmlns:th="http://www.thymeleaf.org"
     xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-<meta charset="ISO-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Login</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
@@ -17,15 +17,15 @@
     crossorigin="anonymous" />
 </head>
 <body>
-    <div th:if="${param.error}">Private Key e/ou Pubic Key estão inválidos.</div>
+    <div th:if="${param.error}">Private Key e/ou Pubic Key estÃ£o invÃ¡lidos.</div>
     <div th:if="${param.logout}">You have been logged out.</div>
     <div class="container droppedHover" style="width:50%; text-align: center;">
         <form th:action="@{/login}" method="post" class="form-signin" role="form">
             <h2 class="form-signin-heading" contenteditable="false"><b>Dados de acesso</b></h2>
-            <input type="text" class="form-control" name="username" placeholder="private_key" required="true"
+            <input type="text" class="form-control" name="username" placeholder="public_key" required="true"
                 autofocus="true" contenteditable="false" /> 
                 <br/>
-            <input name="password" type="text" class="form-control" placeholder="public_key" required="true"
+            <input name="password" type="text" class="form-control" placeholder="private_key" required="true"
                 autofocus="true" contenteditable="false" />
                 <br/>
             <button class="btn btn-lg btn-primary" type="submit">Acessar</button>

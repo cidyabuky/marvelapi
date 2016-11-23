@@ -9,12 +9,12 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Joiner;
 
-import br.com.marvelapi.service.MarvelRestService;
+import br.com.marvelapi.repository.MarvelRestRepository;
 
 public class MD5Utils {
 
 	private static final String MD5 = "MD5";
-	private static final Logger log = LoggerFactory.getLogger(MarvelRestService.class);
+	private static final Logger log = LoggerFactory.getLogger(MarvelRestRepository.class);
 
 	public static String getHash(Object... args) {
 		if (args == null || args.length == 0) {

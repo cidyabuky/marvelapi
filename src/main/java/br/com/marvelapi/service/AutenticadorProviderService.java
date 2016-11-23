@@ -18,9 +18,10 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
-import br.com.marvelapi.model.CharacterDataWrapper;
+import br.com.marvelapi.model.Characters;
 import br.com.marvelapi.model.Credentials;
 import br.com.marvelapi.repository.CharactersRepository;
+import br.com.marvelapi.repository.MarvelRestRepository;
 
 @Component
 public class AutenticadorProviderService implements AuthenticationProvider {
@@ -28,7 +29,7 @@ public class AutenticadorProviderService implements AuthenticationProvider {
 	private static final Logger log = LoggerFactory.getLogger(AutenticadorProviderService.class);
 
 	@Autowired
-	private MarvelRestService marvelService;
+	private MarvelRestRepository marvelService;
 	@Autowired
 	protected CharactersRepository personagemRepository;
 
@@ -40,9 +41,9 @@ public class AutenticadorProviderService implements AuthenticationProvider {
 		Credentials credenciais = new Credentials(privateKey, publicKey);
 
 		try {
-			CharacterDataWrapper body = marvelService.getCaracterByCredentials(credenciais);
-			log.info(body.toString());
-			personagemRepository.save(body.getData().getResults());
+			List<Characters> charactersList = marvelService.getCaracterByCredentials(credenciais);
+			log.info(charactersList.toString());
+			personagemRepository.save(charactersList);
 			List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>();
 			authList.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 			RequestContextHolder.getRequestAttributes().setAttribute("credenciais", credenciais, RequestAttributes.SCOPE_SESSION);

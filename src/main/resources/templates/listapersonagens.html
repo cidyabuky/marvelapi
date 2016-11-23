@@ -11,13 +11,15 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th style="width: 30%;">Nome</th>
+                    <th style="width: 10%;"></th>                
+                    <th style="width: 20%;">Nome</th>
                     <th style="width: 50%;">Descrição</th>
                     <th style="width: 20%;">Última Atualização</th>
                 </tr>
             </thead>
             <tr th:each="row : ${page}">
-                <td style="width: 30%;"><a th:href="@{characters(id=${row.id})}"><span th:text="${row.name}"></span></a></td>
+                <td style="width: 10%;"><a th:href="@{characters(id=${row.id})}"><img th:src="${row.thumbnail.urlImageSmall}" alt="" /></a></td>
+                <td style="width: 20%;"><a th:href="@{characters(id=${row.id})}"><span th:text="${row.name}"></span></a></td>
                 <td style="width: 50%;"><span th:text="${row.description}"></span></td>
                 <td style="width: 20%;"><span
                     th:text="${#dates.format(row.modified, 'dd/MM/yyyy')}"></span></td>
